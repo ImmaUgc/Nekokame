@@ -1,0 +1,132 @@
+[gd_scene load_steps=22 format=3 uid="uid://b0dwbyk31g8oc"]
+
+[ext_resource type="Shader" path="res://Shaders/wiggle.gdshader" id="1_4rd4p"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_56qv0"]
+[ext_resource type="Texture2D" uid="uid://4btxvoldnb8v" path="res://Sprites/Menu/title.png" id="2_p2ugu"]
+[ext_resource type="Texture2D" uid="uid://1hkf4stgkn5c" path="res://Sprites/Menu/nekinha.png" id="3_15gwl"]
+[ext_resource type="Texture2D" uid="uid://vbxvs2yyyfey" path="res://Sprites/Menu/sombrinha.png" id="4_epowk"]
+[ext_resource type="Texture2D" uid="uid://cdgm8haofv5bd" path="res://Sprites/Menu/nekokame.png" id="5_njp28"]
+[ext_resource type="Texture2D" uid="uid://br15mv54q5db4" path="res://Sprites/Menu/select.png" id="7_axum6"]
+[ext_resource type="Texture2D" uid="uid://c0h1fk3vsueif" path="res://Sprites/Menu/start.png" id="8_edle8"]
+[ext_resource type="Texture2D" uid="uid://wk7h3seivacw" path="res://Sprites/Menu/credits.png" id="9_g8x15"]
+[ext_resource type="AudioStream" uid="uid://do31ff23ni0r2" path="res://Sounds/Nekokamenu.mp3" id="10_w8irt"]
+[ext_resource type="AudioStream" uid="uid://3xeq68evkcbh" path="res://Sounds/Select.mp3" id="11_v64pb"]
+[ext_resource type="AudioStream" uid="uid://ciudsxtfif22p" path="res://Sounds/Selected.mp3" id="12_gdvc5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xrg0"]
+shader = ExtResource("1_4rd4p")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ihqh"]
+shader = ExtResource("1_4rd4p")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5y11f"]
+shader = ExtResource("1_4rd4p")
+
+[sub_resource type="Animation" id="Animation_0ngqh"]
+resource_name = "floating"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sombrinha:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1037, 594), Vector2(1037, 590), Vector2(1037, 594)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5x2ln"]
+_data = {
+"floating": SubResource("Animation_0ngqh")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pnxbv"]
+shader = ExtResource("1_4rd4p")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vgl70"]
+shader = ExtResource("1_4rd4p")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2byp6"]
+shader = ExtResource("1_4rd4p")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mw8vf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_axum6")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"blink",
+"speed": 3.0
+}]
+
+[node name="Main menu" type="Node2D"]
+script = ExtResource("1_56qv0")
+
+[node name="Title" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7xrg0")
+position = Vector2(576, 300)
+scale = Vector2(4, 6)
+texture = ExtResource("2_p2ugu")
+
+[node name="Nekinha" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6ihqh")
+position = Vector2(48, 600)
+scale = Vector2(3, 6)
+texture = ExtResource("3_15gwl")
+
+[node name="Sombrinha" type="Sprite2D" parent="."]
+position = Vector2(1037, 594)
+scale = Vector2(8.37499, 5.75)
+texture = ExtResource("4_epowk")
+
+[node name="Nekokame" type="Sprite2D" parent="Sombrinha"]
+material = SubResource("ShaderMaterial_5y11f")
+position = Vector2(0, -13.2174)
+scale = Vector2(0.4, 1)
+texture = ExtResource("5_njp28")
+
+[node name="Floating" type="AnimationPlayer" parent="Sombrinha"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_5x2ln")
+}
+
+[node name="Start" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_pnxbv")
+position = Vector2(576, 450)
+scale = Vector2(2.1, 4)
+texture = ExtResource("8_edle8")
+
+[node name="Credits" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vgl70")
+position = Vector2(576, 574)
+scale = Vector2(2.1, 4)
+texture = ExtResource("9_g8x15")
+
+[node name="Select" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_2byp6")
+position = Vector2(576, 450)
+scale = Vector2(2.1, 4)
+sprite_frames = SubResource("SpriteFrames_mw8vf")
+animation = &"blink"
+frame_progress = 0.637236
+
+[node name="Selected Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_gdvc5")
+
+[node name="Select Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_v64pb")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_w8irt")
+volume_db = -80.0
+autoplay = true

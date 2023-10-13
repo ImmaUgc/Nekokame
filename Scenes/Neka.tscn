@@ -1,0 +1,139 @@
+[gd_scene load_steps=21 format=3 uid="uid://bmlkm2a2wx3nv"]
+
+[ext_resource type="Script" path="res://Scripts/Neka.gd" id="1_v20eu"]
+[ext_resource type="Texture2D" uid="uid://cam86455ttxm1" path="res://Sprites/Neka/idle back1.png" id="2_jmkq0"]
+[ext_resource type="Texture2D" uid="uid://dtrn0o6huvyh1" path="res://Sprites/Neka/idle back2.png" id="3_06mpm"]
+[ext_resource type="Texture2D" uid="uid://c030m6r1a2xer" path="res://Sprites/Neka/idle front.png" id="4_3epk7"]
+[ext_resource type="Texture2D" uid="uid://bjt5gn65cahi5" path="res://Sprites/Neka/idle right.png" id="5_fbeek"]
+[ext_resource type="Texture2D" uid="uid://bmrrks0u414a7" path="res://Sprites/Neka/walking back sheet.png" id="6_dv452"]
+[ext_resource type="Texture2D" uid="uid://bavp18lon2k2b" path="res://Sprites/Neka/walking front.png" id="7_s7v1e"]
+[ext_resource type="Texture2D" uid="uid://duwmuxkeogg1o" path="res://Sprites/Neka/walking right.png" id="8_7fwuh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgwah"]
+atlas = ExtResource("4_3epk7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1raqq"]
+atlas = ExtResource("4_3epk7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh0st"]
+atlas = ExtResource("5_fbeek")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmkrb"]
+atlas = ExtResource("5_fbeek")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mj0v"]
+atlas = ExtResource("6_dv452")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xalgc"]
+atlas = ExtResource("6_dv452")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab8dg"]
+atlas = ExtResource("7_s7v1e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvunf"]
+atlas = ExtResource("7_s7v1e")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u88g"]
+atlas = ExtResource("8_7fwuh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4h2d"]
+atlas = ExtResource("8_7fwuh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jdnjk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jmkq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_06mpm")
+}],
+"loop": true,
+"name": &"idle back",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgwah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1raqq")
+}],
+"loop": true,
+"name": &"idle front",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hh0st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmkrb")
+}],
+"loop": true,
+"name": &"idle right",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mj0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xalgc")
+}],
+"loop": true,
+"name": &"walking back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab8dg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvunf")
+}],
+"loop": true,
+"name": &"walking front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u88g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4h2d")
+}],
+"loop": true,
+"name": &"walking right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grgft"]
+radius = 4.0
+height = 10.0
+
+[node name="Neka" type="CharacterBody2D"]
+script = ExtResource("1_v20eu")
+
+[node name="Sprites" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jdnjk")
+animation = &"walking front"
+frame_progress = 0.319692
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_grgft")
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(8, 8)
