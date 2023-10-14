@@ -168,21 +168,21 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grgft"]
-radius = 4.0
-height = 10.0
+radius = 5.0
+height = 14.0
 
 [node name="Neka" type="CharacterBody2D"]
 script = ExtResource("1_v20eu")
 
 [node name="Sprites" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jdnjk")
-animation = &"idle front"
-frame_progress = 0.582142
+animation = &"walking right"
+frame_progress = 0.538893
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, 12)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_grgft")
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(8, 8)
+zoom = Vector2(6, 6)
