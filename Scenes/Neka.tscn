@@ -1,29 +1,36 @@
-[gd_scene load_steps=21 format=3 uid="uid://bmlkm2a2wx3nv"]
+[gd_scene load_steps=22 format=3 uid="uid://bmlkm2a2wx3nv"]
 
 [ext_resource type="Script" path="res://Scripts/Neka.gd" id="1_v20eu"]
-[ext_resource type="Texture2D" uid="uid://cam86455ttxm1" path="res://Sprites/Neka/idle back1.png" id="2_jmkq0"]
-[ext_resource type="Texture2D" uid="uid://dtrn0o6huvyh1" path="res://Sprites/Neka/idle back2.png" id="3_06mpm"]
-[ext_resource type="Texture2D" uid="uid://c030m6r1a2xer" path="res://Sprites/Neka/idle front.png" id="4_3epk7"]
-[ext_resource type="Texture2D" uid="uid://bjt5gn65cahi5" path="res://Sprites/Neka/idle right.png" id="5_fbeek"]
+[ext_resource type="Texture2D" uid="uid://c5udjhahe4cxk" path="res://Sprites/Neka/Idle back sheet.png" id="2_jbtbv"]
+[ext_resource type="Texture2D" uid="uid://crrnlk2b537rj" path="res://Sprites/Neka/Idle front sheet.png" id="3_10ui5"]
+[ext_resource type="Texture2D" uid="uid://b8cg54beftuls" path="res://Sprites/Neka/Idle right sheet.png" id="4_7lxhq"]
 [ext_resource type="Texture2D" uid="uid://bmrrks0u414a7" path="res://Sprites/Neka/walking back sheet.png" id="6_dv452"]
 [ext_resource type="Texture2D" uid="uid://bavp18lon2k2b" path="res://Sprites/Neka/walking front.png" id="7_s7v1e"]
 [ext_resource type="Texture2D" uid="uid://duwmuxkeogg1o" path="res://Sprites/Neka/walking right.png" id="8_7fwuh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fgwah"]
-atlas = ExtResource("4_3epk7")
-region = Rect2(32, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5586c"]
+atlas = ExtResource("2_jbtbv")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1raqq"]
-atlas = ExtResource("4_3epk7")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd60w"]
+atlas = ExtResource("2_jbtbv")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hh0st"]
-atlas = ExtResource("5_fbeek")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6lql"]
+atlas = ExtResource("3_10ui5")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nmkrb"]
-atlas = ExtResource("5_fbeek")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu4vv"]
+atlas = ExtResource("3_10ui5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy6vq"]
+atlas = ExtResource("4_7lxhq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoojg"]
+atlas = ExtResource("4_7lxhq")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mj0v"]
 atlas = ExtResource("6_dv452")
@@ -53,10 +60,10 @@ region = Rect2(32, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_jmkq0")
+"texture": SubResource("AtlasTexture_5586c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_06mpm")
+"texture": SubResource("AtlasTexture_pd60w")
 }],
 "loop": true,
 "name": &"idle back",
@@ -64,10 +71,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fgwah")
+"texture": SubResource("AtlasTexture_a6lql")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1raqq")
+"texture": SubResource("AtlasTexture_yu4vv")
 }],
 "loop": true,
 "name": &"idle front",
@@ -75,10 +82,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hh0st")
+"texture": SubResource("AtlasTexture_oy6vq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nmkrb")
+"texture": SubResource("AtlasTexture_uoojg")
 }],
 "loop": true,
 "name": &"idle right",
@@ -127,8 +134,8 @@ script = ExtResource("1_v20eu")
 
 [node name="Sprites" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jdnjk")
-animation = &"walking front"
-frame_progress = 0.319692
+animation = &"idle front"
+frame_progress = 0.0110775
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
