@@ -1,6 +1,14 @@
 extends Node
 
 var current_dialog = [];
+var save_file = 'user://nekokame.save';
+
+func save_game():
+	var file = FileAccess.open(save_file, FileAccess.WRITE);
+	file.store_string('teste');
+
+func check_save():
+	return FileAccess.file_exists(save_file);
 
 func scene_transition(scene_name, current_scene_node, music, transition, duration):
 	var modulate_tween = get_tree().create_tween();
