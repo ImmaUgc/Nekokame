@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmrrks0u414a7"
-path="res://.godot/imported/walking back sheet.png-42902a0ec0e2305be1d371405957d037.ctex"
+path="res://.godot/imported/Walking back sheet.png-fa32abb58cd374c52087505aadc2945d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Neka/walking back sheet.png"
-dest_files=["res://.godot/imported/walking back sheet.png-42902a0ec0e2305be1d371405957d037.ctex"]
+source_file="res://Sprites/Neka/Walking back sheet.png"
+dest_files=["res://.godot/imported/Walking back sheet.png-fa32abb58cd374c52087505aadc2945d.ctex"]
 
 [params]
 

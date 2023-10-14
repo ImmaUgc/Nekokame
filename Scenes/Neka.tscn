@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c5udjhahe4cxk" path="res://Sprites/Neka/Idle back sheet.png" id="2_jbtbv"]
 [ext_resource type="Texture2D" uid="uid://crrnlk2b537rj" path="res://Sprites/Neka/Idle front sheet.png" id="3_10ui5"]
 [ext_resource type="Texture2D" uid="uid://b8cg54beftuls" path="res://Sprites/Neka/Idle right sheet.png" id="4_7lxhq"]
-[ext_resource type="Texture2D" uid="uid://bmrrks0u414a7" path="res://Sprites/Neka/walking back sheet.png" id="6_dv452"]
+[ext_resource type="Texture2D" uid="uid://bmrrks0u414a7" path="res://Sprites/Neka/Walking back sheet.png" id="5_u41mo"]
+[ext_resource type="Texture2D" uid="uid://c61lt1hrdq0pi" path="res://Sprites/Neka/Walking right sheet.png" id="7_muvrd"]
 [ext_resource type="Texture2D" uid="uid://bavp18lon2k2b" path="res://Sprites/Neka/walking front.png" id="7_s7v1e"]
-[ext_resource type="Texture2D" uid="uid://duwmuxkeogg1o" path="res://Sprites/Neka/walking right.png" id="8_7fwuh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5586c"]
 atlas = ExtResource("2_jbtbv")
@@ -32,13 +32,13 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("4_7lxhq")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7mj0v"]
-atlas = ExtResource("6_dv452")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_15t2p"]
+atlas = ExtResource("5_u41mo")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xalgc"]
-atlas = ExtResource("6_dv452")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_20mhn"]
+atlas = ExtResource("5_u41mo")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ab8dg"]
 atlas = ExtResource("7_s7v1e")
@@ -48,13 +48,13 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("7_s7v1e")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2u88g"]
-atlas = ExtResource("8_7fwuh")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0w2o"]
+atlas = ExtResource("7_muvrd")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s4h2d"]
-atlas = ExtResource("8_7fwuh")
-region = Rect2(32, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tygpt"]
+atlas = ExtResource("7_muvrd")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jdnjk"]
 animations = [{
@@ -93,10 +93,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7mj0v")
+"texture": SubResource("AtlasTexture_15t2p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xalgc")
+"texture": SubResource("AtlasTexture_20mhn")
 }],
 "loop": true,
 "name": &"walking back",
@@ -115,10 +115,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2u88g")
+"texture": SubResource("AtlasTexture_a0w2o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s4h2d")
+"texture": SubResource("AtlasTexture_tygpt")
 }],
 "loop": true,
 "name": &"walking right",
@@ -134,8 +134,8 @@ script = ExtResource("1_v20eu")
 
 [node name="Sprites" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jdnjk")
-animation = &"idle front"
-frame_progress = 0.0110775
+animation = &"walking back"
+frame_progress = 0.767666
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
