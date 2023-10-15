@@ -1,0 +1,16 @@
+{
+	"dialog intro": {
+		"en-us": [
+			{
+				"character": "neka",
+				"text": "Hello"
+			}
+		],
+		"pt-br": [
+			{
+				"character": "neka",
+				"text": "Olá"
+			}
+		]
+	}
+}

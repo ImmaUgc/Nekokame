@@ -17,6 +17,10 @@ var blocked = true;
 var last_key;
 
 func _ready():
+	modulate = Color8(255, 255, 255, 0);
+	if(not Global.check_config()):
+		Global.init_config();
+	load_configs();
 	if(not Global.check_save()):
 		$Continue.set('theme_override_colors/default_color', Color8(0, 0, 0, 100));
 		options.remove_at(0);
@@ -25,6 +29,11 @@ func _ready():
 	await Global.transition(self, $Music, 'IN', 1);
 	blocked = false;
 	PawAnimation.play('in');
+
+func load_configs():
+	var text_options = Global.get_text_file('Menu');
+	for index in len(options):
+		options[index].text = '[center][wave freq=1]' + text_options[index];
 
 func _input(event):
 	var key = event.as_text();
@@ -40,12 +49,19 @@ func _input(event):
 		elif(key == 'Enter'):
 			selected_sound.play();
 			blocked = true;
+			
 			var scene;
-			if(current == 0):
+			if(options[current].name == 'Continue'):
 				pass;
-			elif(current == 1):
+			elif(options[current].name == 'New Game'):
+				scene = 'res://Scenes/Maps/intro.tscn';
+			elif(options[current].name == 'Options'):
+				pass;
+			elif(options[current].name == 'Credits'):
 				scene = 'res://Scenes/credits.tscn';
+				
 			Global.scene_transition(scene, self, $Music, 'OUT', 2);
+			
 		if(current > options.size() - 1):
 			current = 0;
 		if(current < 0):
