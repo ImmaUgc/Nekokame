@@ -21,16 +21,18 @@ func check_save():
 func get_save():
 	return JSON.parse_string(FileAccess.open(save_file, FileAccess.READ).get_as_text());
 
-func set_config(lang):
+func set_config(lang, mode):
 	var file = FileAccess.open(config_file, FileAccess.WRITE);
 	file.store_string(JSON.stringify({
-		'language': lang
+		'language': lang,
+		'mode': mode
 	}));
 
 func init_config():
 	var file = FileAccess.open(config_file, FileAccess.WRITE);
 	file.store_string(JSON.stringify({
-		'language': 'en-us'
+		'language': 'en-us',
+		'mode': 'WINDOW_MODE_WINDOWED'
 	}));
 
 func check_config():

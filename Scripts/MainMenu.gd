@@ -32,6 +32,8 @@ func _ready():
 
 func load_configs():
 	var text_options = Global.get_text_file('Menu');
+	var window_mode = Global.get_config()['mode'];
+	DisplayServer.window_set_mode(DisplayServer[window_mode]);
 	for index in len(options):
 		options[index].text = '[center][wave freq=1]' + text_options[index];
 
@@ -56,7 +58,7 @@ func _input(event):
 			elif(options[current].name == 'New Game'):
 				scene = 'res://Scenes/Maps/intro.tscn';
 			elif(options[current].name == 'Options'):
-				pass;
+				scene = 'res://Scenes/options.tscn';
 			elif(options[current].name == 'Credits'):
 				scene = 'res://Scenes/credits.tscn';
 				
